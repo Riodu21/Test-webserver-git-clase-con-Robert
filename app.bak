@@ -1,0 +1,23 @@
+import http from 'http';
+
+http.createServer((request, response) => {
+    //response.write("Saludos Programas!!!!");
+    const persona = {
+        id:1,
+        nombre: "Edgar",
+    }
+
+    response.setHeader('Content-Disposition', 'attachment; filename=personas.csv');
+    response.writeHead(200, {'Content-Type': 'application/CSV'});
+    response.write('id, nombre\n');
+    response.write('1, raiul\n');
+    response.write('2, Jose\n');
+    response.write('3, Estaban\n');
+    response.write('4, Edmun\n');
+    response.write('5, Jimena\n');
+    //response.write("Error 404: Resource not found");
+    //console.log(response);
+    response.end();
+    }).listen(8080);
+
+    console.log("Estamos escuchando en el puerto 8080");
